@@ -38,7 +38,6 @@ app.get("/users", (req, res) => {
  * Parameters: Id
  */
 app.get("/users/:id", (req, res) => {
-    // const  id  = req.params.id;
     const { id } = req.params;
     console.log(req.params);
     const user = users.find((each) => each.id === id);
