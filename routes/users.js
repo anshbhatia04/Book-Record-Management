@@ -153,7 +153,7 @@ router.get("/:id", (req, res) => {
       message : 'No such user exists.'
     });
   }
-  const getDateInDays = (date = "")=>{
+  const getDateInDays = (data = "")=>{
     let date;
     if (data === ""){
       date = new Date();
@@ -164,12 +164,12 @@ router.get("/:id", (req, res) => {
     return days;
   };
 
-  const subscriptionType = {date}=>{
-    if(user.subscriptionType = "Basic"){
+  const subscriptionType = (date) => {
+    if ((user.subscriptionType = "Basic")) {
       date = date + 90;
-    }else if(user.subscriptionType == "Standard"){
+    } else if ((user.subscriptionType = "Standard")) {
       date = date + 180;
-    }else if(user.subscriptionType == "Premium"){
+    } else if ((user.subscriptionType = "Premium")) {
       date = date + 365;
     }
     return date;
