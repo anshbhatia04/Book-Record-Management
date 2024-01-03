@@ -26,7 +26,6 @@ router.get("/", (req, res) => {
  * Parameters: Id
  */
 router.get("/:id", (req, res) => {
-  // const  id  = req.params.id;
   const { id } = req.params;
   console.log(req.params);
   const user = users.find((each) => each.id === id);
@@ -136,5 +135,46 @@ router.delete("/:id", (req, res) => {
     .status(200)
     .json({ success: true, message: "Deleted User..", data: users });
 });
+
+/**
+ * Route: /users/subscription-details/:id
+ * Method: GET
+ * Description: Get All Users' Subscription details
+ * Access: Public
+ * Parameters: Id
+ */
+router.get("/:id", (req, res) => {
+  const { id } = req.params;
+  const user = users.find((each) => each.id === id);
+
+  if(!user){
+    return res.status(404).json({
+      success : false,
+      message : 'No such user exists.'
+    });
+  }
+  const getDateInDays = (date = "")=>{
+    let date;
+    if (data === ""){
+      date = new Date();
+    }else{
+      date = new Date(data);
+    }
+    let days = Math.floor(data / (1000*60*60*24));
+    return days;
+  };
+
+  const subscriptionType = {date}=>{
+    if(user.subscriptionType = "Basic"){
+      date = date + 90;
+    }else if(user.subscriptionType == "Standard"){
+      date = date + 180;
+    }else if(user.subscriptionType == "Premium"){
+      date = date + 365;
+    }
+    return date;
+  };
+});
+
 
 module.exports = router;
