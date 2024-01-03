@@ -150,7 +150,7 @@ router.get("/:id", (req, res) => {
   if(!user){
     return res.status(404).json({
       success : false,
-      message : 'No such user exists.'
+      message : "No such user exists."
     });
   }
   const getDateInDays = (data = "")=>{
@@ -160,21 +160,35 @@ router.get("/:id", (req, res) => {
     }else{
       date = new Date(data);
     }
-    let days = Math.floor(data / (1000*60*60*24));
+    let days = Math.floor(date / (1000*60*60*24));
     return days;
   };
 
   const subscriptionType = (date) => {
-    if ((user.subscriptionType = "Basic")) {
+    if ((user.subscriptionType === "Basic")) {
       date = date + 90;
-    } else if ((user.subscriptionType = "Standard")) {
+    } else if ((user.subscriptionType === "Standard")) {
       date = date + 180;
-    } else if ((user.subscriptionType = "Premium")) {
+    } else if ((user.subscriptionType === "Premium")) {
       date = date + 365;
     }
     return date;
   };
-});
+  let returnDateInDays = getDateInDays(user.returnDate);
+  let currentDate = getDateInDays();
+  let subscriptionDate = getDateInDays(user.subscriptionDate);
+  let subscriptionExpiration = subscriptionType(subscriptionDate);
 
+  const data = {
+    ...user,
+    isSubscriptionExpired : subscriptionExpiration <= currentDate,
+    daysLeftForExpiration : subscriptionExpiration <= currentDate ? 0 : subscriptionExpiration - currentDate,
+    fine : returnDateInDays < currentDate ? subscriptionExpiration <= currentDate ? 100 : 50 : 0,
+  };
+  return res.status(200).json({
+    success : true,
+    message : "Subscription details for the user is: ", data,
+  });
+});
 
 module.exports = router;
