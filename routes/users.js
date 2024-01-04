@@ -2,6 +2,8 @@ const express = require("express");
 const { users } = require("../data/users.json");
 
 const router = express.Router();
+
+
 /**
  * Route: /
  * Method: GET
@@ -9,7 +11,6 @@ const router = express.Router();
  * Access: Public
  * Parameters: None
  */
-
 //localhost:8081/users
 router.get("/", (req, res) => {
   res.status(200).json({
@@ -17,6 +18,7 @@ router.get("/", (req, res) => {
     data: users,
   });
 });
+
 
 /**
  * Route: /:id
@@ -41,6 +43,7 @@ router.get("/:id", (req, res) => {
     data: user,
   });
 });
+
 
 /**
  * Route: /
@@ -78,6 +81,7 @@ router.post("/", (req, res) => {
   });
 });
 
+
 /**
  * Route: /:id
  * Method: PUT
@@ -112,6 +116,7 @@ router.put("/:id", (req, res) => {
   });
 });
 
+
 /**
  * Route: /:id
  * Method: DELETE
@@ -135,6 +140,7 @@ router.delete("/:id", (req, res) => {
     .status(200)
     .json({ success: true, message: "Deleted User..", data: users });
 });
+
 
 /**
  * Route: /users/subscription-details/:id
