@@ -1,5 +1,5 @@
 {
-  "name": "Book Record Management Db",
+  "name": "book-record-management-db",
   "version": "1.0.0",
   "description": "Library System",
   "main": "index.js",

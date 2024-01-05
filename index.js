@@ -1,7 +1,7 @@
 const express = require("express");
-const dotenv = require("dotenv")
+const dotenv = require("dotenv");
 
-const DbConnection = require("./databaseConnection.js")
+const DbConnection = require("./databaseConnection.js");
 
 const userRouter = require("./routes/users.js");
 const booksRouter = require("./routes/books.js");
