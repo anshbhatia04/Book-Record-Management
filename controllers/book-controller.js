@@ -66,14 +66,17 @@ exports.addNewBook = async(req, res) => {
     await BookModel.create(data);
     const allBooks = await BookModel.find();
 
-    return res.status(201).json({
-    success: true,
-    message: "Added Book Succesfully!",
-    data: allBooks,
-    });
+       return res.status(201).json({
+       success: true,
+       message: "Added Book Succesfully!",
+       data: allBooks,
+       });
 };
 
 exports.updateBookById = async (req, res) => {
+    const { id } = req.params;
+    const { data } = req.body;
+   
     const updatedBook = await BookModel.findOneAndUpdate(
         {
           _id: id,

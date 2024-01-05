@@ -15,10 +15,10 @@ constructor(user) {
     this.genre = user.issuedBook.genre;
     this.price = user.issuedBook.price;
     this.publisher = user.issuedBook.publisher;
-    this.issuedBy = user.issuedBook.issuedBy;
-    this.issueDate = user.issuedBook.issuedDate;
-    this.returnDate = user.issuedBook.returnDate;
-}
+    this.issuedBy = user.issuedBy;
+    this.issueDate = user.issuedDate;
+    this.returnDate = user.returnDate;
+    }
 }
 
 module.exports = IssuedBook;
