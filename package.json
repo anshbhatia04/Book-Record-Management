@@ -1,5 +1,5 @@
 {
-  "name": "book-record-management",
+  "name": "Book Record Management Db",
   "version": "1.0.0",
   "description": "Library System",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anshbhatia04/Book-Record-Management.git"
+    "url": "git+https://github.com/anshbhatia04/Book-Record-Management-Db.git"
   },
   "author": "ansh bhatia",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/anshbhatia04/Book-Record-Management/issues"
+    "url": "https://github.com/anshbhatia04/Book-Record-Management-Db/issues"
   },
-  "homepage": "https://github.com/anshbhatia04/Book-Record-Management#readme",
+  "homepage": "https://github.com/anshbhatia04/Book-Record-Management-Db#readme",
   "devDependencies": {
     "nodemon": "^3.0.2"
   },
