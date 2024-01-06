@@ -91,5 +91,5 @@ exports.updateBookById = async (req, res) => {
         message: "Updated a Book By Their Id",
         data: updatedBook,
       });
-    };
+};
 
